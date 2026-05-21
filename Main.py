@@ -149,3 +149,9 @@ def settings():
 			settings()
 		
 lock()
+
+
+
+# AEgfwergsd hre
+# wrhwrhfsdhj wert ertjter
+#jtea etajr jetaajetr ajte 
