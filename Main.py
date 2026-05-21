@@ -1,6 +1,7 @@
 # Written by odinmedicbro, published by RAT-5272 on his behalf.
 # ADADADADADDA
-
+#velkonia is a dictatorship
+#RAT is a dictator who commits violence against political enemies
 import time
 profile = "new user"
 password = "123"
