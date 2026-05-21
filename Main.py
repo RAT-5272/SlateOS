@@ -56,21 +56,12 @@ def wipeChat():
 	print("\n"*150)  
 def construction(FeatureName = "Unnamed"):
 	print(f"""The feature '{FeatureName}' is not currently available
-		XXXXXXXXX        
-	XXXXXXXXXXXXXXXXX    
-	X XXX         XXX X    
-XXXX               XXXX  
-X X               XXXXX X
-XX              XXXX   XX
-XX            XXXXX      XX
-XX          XXXXX        XX
-XX       XXXXX           XX
-XX    XXXXX            XX
-X X XXXXX             X X
-XXXXXX             XXXX  
-	X XXX         XXX X    
-	XXXXXXXXXXXXXXXXX    
-		XXXXXXXXX         """)
+8b,dPPYba,   ,adPPYba,   
+88P'   `"8a a8"     "8a  
+88       88 8b       d8  
+88       88 "8a,   ,a8"  
+88       88  `"YbbdP"'   
+                         """)
 
 
 def username():
