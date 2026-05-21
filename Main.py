@@ -1,4 +1,3 @@
-# Written by odinmedicbro, published by RAT-5272 on his behalf.
 
 import time
 profile = "new user"
