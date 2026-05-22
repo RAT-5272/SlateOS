@@ -1,7 +1,7 @@
 import requests
 
 BaseUrl = "http://wiki.velkonianfederation.uk"
-UserId = "User1"
+UserId = """User1"""
 
 
 def SendMessage(To, Message):
@@ -27,15 +27,11 @@ def GetConversationList():
         f"{BaseUrl}/API/SlateOSMessaging/Conversations/{UserId}"
     ).json()
 
-print(requests.get(
-        f"{BaseUrl}/API/SlateOSMessaging/History/User2",
-        params={"User": UserId}
-    ))
 
 if __name__ == "__main__":
     print("Conversation List:")
     print(GetConversationList())
-    print("\nMessage History with User2:")
+    print("\n\nMessage History with User2:")
     print(GetMessageHistory("User2"))
     #print("\nSending message to User2...")
     #SendMessage("User2", "Hello, User2!")
