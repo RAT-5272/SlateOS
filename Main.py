@@ -5,24 +5,64 @@ profile = "new user"
 password = "123"
 passAttempts = 0
 
-USER_DATA_FILE_PATH = "IfYouAreAHackerDoneOpen.txt"
+USER_DATA_FILE_PATH = "IfYouAreAHackerDontOpen.txt"
+
+USER_DATA_LOOKUP_TABLE = [
+	"Password",
+	"UserID",
+	"Username"
+]
+USER_DATA_DEFAULTS = [
+	"123",
+	"0",
+	"None"
+]
 
 def ReadUserData(DataName):
-	LookupTable = {
-		"Password",
-		"UserID",
-		"Username"
-	}
-
-	UserData = open(USER_DATA_FILE_PATH, "r")
-	Information = UserData.readlines()[LookupTable.index(DataName)]
-	UserData.close()
+	# Validate that the file exists in a bad way
+	try:
+		fil = open(USER_DATA_FILE_PATH, "x")
+		fil.close()
+	except:
+		pass
+	
+	# Read file contents, if data not in file, return the default
+	with open(USER_DATA_FILE_PATH, "r") as UserData:
+		try:
+			Information = UserData.readlines()[USER_DATA_LOOKUP_TABLE.index(DataName)]
+		except:
+			Information = USER_DATA_DEFAULTS[USER_DATA_LOOKUP_TABLE.index(DataName)]
 
 	return Information
 
 def WriteUserData(DataName, Value):
-	pass
+	# Validate that the file exists in a bad way
+	try:
+		fil = open(USER_DATA_FILE_PATH, "x")
+		fil.close()
+	except:
+		pass
 
+	# Read data from the file
+	Index = USER_DATA_LOOKUP_TABLE.index(DataName)
+	with open(USER_DATA_FILE_PATH, "r") as UserData:
+		UserDataContentsADAD = UserData.readlines()
+
+		UserDataContents = []
+		for Content in UserDataContentsADAD:
+			UserDataContents.append(Content.strip("\n"))
+		print(UserDataContents)
+	
+	try:
+		CurrentValue = UserDataContents[Index]
+	except:
+		for i in range(len(UserDataContents), Index+1):
+			UserDataContents.append(USER_DATA_DEFAULTS[i])
+	
+	UserDataContents[Index] = Value
+
+	with open(USER_DATA_FILE_PATH, "w") as UserData:
+		UserData.write("\n".join(UserDataContents))
 
 #commands
 def diceCoins():
