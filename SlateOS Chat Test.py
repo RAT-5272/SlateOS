@@ -40,7 +40,7 @@ def SendMessage(To, Message):
                 "From": UserId,
                 "To": To,
                 "Message": Message,
-                "t": int(time.time() * 1000)
+                "t": int(f"{int(time.time() * 1000)}{random.randint(0, 999)}")
             },
             headers={
                 "Cache-Control": "no-cache",
