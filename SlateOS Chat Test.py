@@ -1,6 +1,6 @@
 import requests
 
-BaseUrl = "http://wiki.velkonianfederation.uk"
+BaseUrl = "https://wiki.velkonianfederation.uk"
 UserId = """User1"""
 
 

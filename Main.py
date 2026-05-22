@@ -4,6 +4,26 @@ import time
 profile = "new user"
 password = "123"
 passAttempts = 0
+
+USER_DATA_FILE_PATH = "IfYouAreAHackerDoneOpen.txt"
+
+def ReadUserData(DataName):
+	LookupTable = {
+		"Password",
+		"UserID",
+		"Username"
+	}
+
+	UserData = open(USER_DATA_FILE_PATH, "r")
+	Information = UserData.readlines()[LookupTable.index(DataName)]
+	UserData.close()
+
+	return Information
+
+def WriteUserData(DataName, Value):
+	pass
+
+
 #commands
 def lock():
 	global passAttempts
