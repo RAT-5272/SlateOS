@@ -1,10 +1,23 @@
 # Written by odinmedicbro, published by RAT-5272 on his behalf.
-
+import random
 import time
 profile = "new user"
 password = "123"
 passAttempts = 0
 #commands
+def diceCoins():
+	CorD = input("do you want to flip a coin or roll a dice 1 = coin 2 = dice if u want to exit exit = 3: ")
+	if CorD == "1":
+		coin = random.randint(1, 2)
+		if coin == 1:
+			print("you flipped heads")
+		else:
+			print("you flipped tails")
+	if CorD == "2":
+		dice = random.randint(1, 6)
+		print("you rolled a " + str(dice))
+	if CorD == "3":
+		mainMenu()
 def lock():
 	global passAttempts
 	if passAttempts == 5:
