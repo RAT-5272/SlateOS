@@ -1,28 +1,65 @@
-# Written by odinmedicbro, published by RAT-5272 on his behalf.
 import random
 import time
 profile = "new user"
 password = "123"
 passAttempts = 0
 
-USER_DATA_FILE_PATH = "IfYouAreAHackerDoneOpen.txt"
+USER_DATA_FILE_PATH = "IfYouAreAHackerDontOpen.txt"
+
+USER_DATA_LOOKUP_TABLE = [
+	"Password",
+	"Username"
+]
+USER_DATA_DEFAULTS = [
+	"123",
+	"None"
+]
 
 def ReadUserData(DataName):
-	LookupTable = {
-		"Password",
-		"UserID",
-		"Username"
-	}
-
-	UserData = open(USER_DATA_FILE_PATH, "r")
-	Information = UserData.readlines()[LookupTable.index(DataName)]
-	UserData.close()
+	# Validate that the file exists in a bad way
+	try:
+		fil = open(USER_DATA_FILE_PATH, "x")
+		fil.close()
+	except:
+		pass
+	
+	# Read file contents, if data not in file, return the default
+	with open(USER_DATA_FILE_PATH, "r") as UserData:
+		try:
+			Information = UserData.readlines()[USER_DATA_LOOKUP_TABLE.index(DataName)]
+		except:
+			Information = USER_DATA_DEFAULTS[USER_DATA_LOOKUP_TABLE.index(DataName)]
 
 	return Information
 
 def WriteUserData(DataName, Value):
-	pass
+	# Validate that the file exists in a bad way
+	try:
+		fil = open(USER_DATA_FILE_PATH, "x")
+		fil.close()
+	except:
+		pass
 
+	# Read data from the file
+	Index = USER_DATA_LOOKUP_TABLE.index(DataName)
+	with open(USER_DATA_FILE_PATH, "r") as UserData:
+		UserDataContentsADAD = UserData.readlines()
+
+		UserDataContents = []
+		for Content in UserDataContentsADAD:
+			UserDataContents.append(Content.strip("\n"))
+		print(UserDataContents)
+	
+	try:
+		CurrentValue = UserDataContents[Index]
+	except:
+		for i in range(len(UserDataContents), Index+1):
+			UserDataContents.append(USER_DATA_DEFAULTS[i])
+	
+	UserDataContents[Index] = Value
+
+	with open(USER_DATA_FILE_PATH, "w") as UserData:
+		UserData.write("\n".join(UserDataContents))
 
 #commands
 def diceCoins():
@@ -127,7 +164,7 @@ def diceCoins():
 	if CorD == "3":
 		mainMenu()
 def lock():
-	global passAttempts
+	global passAttempts, password
 	if passAttempts == 5:
 		print("device will now be locked for 2 mins")
 		for i in range (1, 120):
@@ -145,6 +182,9 @@ def lock():
 							
 
 """)
+	
+	password = ReadUserData("Password")
+
 	enterAttempt = input("please enter password to enter device: ")
 	if enterAttempt == password:
 		clearChat()
@@ -187,6 +227,9 @@ def construction(FeatureName = "Unnamed"):
 
 def username():
 	global profile
+
+	profile = ReadUserData("Username")
+
 	assurance = input("your current username is " + profile + " do you want to change it 1 = yes 2 = no: ")
 	if assurance == "1":
 		name = input("please enter username: ")
@@ -194,6 +237,7 @@ def username():
 		if yn == "1":
 			print("Your new username is " + name + " username will be updated.")
 			profile = name
+			WriteUserData("Username", profile)
 			settings()
 		else:
 			print("please try again")
@@ -203,6 +247,12 @@ def username():
 		settings()
 def changePassword():
 	global password
+
+	password = ReadUserData("Password")
+
+	if password == "123":
+		print("Your password is currently the default, '123'.")
+
 	passChange = input("do you want to change your password 1 = yes 2 = no: ")
 	if passChange == "1":
 		passlock = input("to change password please enter current password: ")
@@ -213,6 +263,7 @@ def changePassword():
 			if newpassword == newpassword2:
 				password = newpassword
 				print("password now changed your new password is " + password)
+				WriteUserData("Password", password)
 				settings()
 			else:
 				print("sorry these do not match please try again")
@@ -267,4 +318,6 @@ def settings():
 			clearChat()
 			settings()
 		
+profile = ReadUserData("Username")
+password = ReadUserData("Password")
 lock()
