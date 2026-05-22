@@ -1,4 +1,3 @@
-# Written by odinmedicbro, published by RAT-5272 on his behalf.
 import random
 import time
 profile = "new user"
@@ -9,12 +8,10 @@ USER_DATA_FILE_PATH = "IfYouAreAHackerDontOpen.txt"
 
 USER_DATA_LOOKUP_TABLE = [
 	"Password",
-	"UserID",
 	"Username"
 ]
 USER_DATA_DEFAULTS = [
 	"123",
-	"0",
 	"None"
 ]
 
@@ -79,7 +76,7 @@ def diceCoins():
 	if CorD == "3":
 		mainMenu()
 def lock():
-	global passAttempts
+	global passAttempts, password
 	if passAttempts == 5:
 		print("device will now be locked for 2 mins")
 		for i in range (1, 120):
@@ -97,6 +94,9 @@ def lock():
 							
 
 """)
+	
+	password = ReadUserData("Password")
+
 	enterAttempt = input("please enter password to enter device: ")
 	if enterAttempt == password:
 		clearChat()
@@ -139,6 +139,9 @@ def construction(FeatureName = "Unnamed"):
 
 def username():
 	global profile
+
+	profile = ReadUserData("Username")
+
 	assurance = input("your current username is " + profile + " do you want to change it 1 = yes 2 = no: ")
 	if assurance == "1":
 		name = input("please enter username: ")
@@ -146,6 +149,7 @@ def username():
 		if yn == "1":
 			print("Your new username is " + name + " username will be updated.")
 			profile = name
+			WriteUserData("Username", profile)
 			settings()
 		else:
 			print("please try again")
@@ -155,6 +159,12 @@ def username():
 		settings()
 def changePassword():
 	global password
+
+	password = ReadUserData("Password")
+
+	if password == "123":
+		print("Your password is currently the default, '123'.")
+
 	passChange = input("do you want to change your password 1 = yes 2 = no: ")
 	if passChange == "1":
 		passlock = input("to change password please enter current password: ")
@@ -165,6 +175,7 @@ def changePassword():
 			if newpassword == newpassword2:
 				password = newpassword
 				print("password now changed your new password is " + password)
+				WriteUserData("Password", password)
 				settings()
 			else:
 				print("sorry these do not match please try again")
@@ -220,4 +231,6 @@ def settings():
 			clearChat()
 			settings()
 		
+profile = ReadUserData("Username")
+password = ReadUserData("Password")
 lock()
