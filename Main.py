@@ -30,7 +30,7 @@ def ReadUserData(DataName):
 		except:
 			Information = USER_DATA_DEFAULTS[USER_DATA_LOOKUP_TABLE.index(DataName)]
 
-	return Information
+	return Information.strip("\n")
 
 def WriteUserData(DataName, Value):
 	# Validate that the file exists in a bad way
@@ -48,7 +48,7 @@ def WriteUserData(DataName, Value):
 		UserDataContents = []
 		for Content in UserDataContentsADAD:
 			UserDataContents.append(Content.strip("\n"))
-		print(UserDataContents)
+
 	
 	try:
 		CurrentValue = UserDataContents[Index]
@@ -106,8 +106,7 @@ def diceCoins():
 		coin = random.randint(1, 2)
 		if coin == 1:
 			print("""        _.-'~~`~~'-._
-     .'`             `'.
-    /                   \\
+3    /                   \\
   /`       .-'~"-.       `\\
  ;        / `-    \\        ;
 ;        />  `.  -.|        ;
