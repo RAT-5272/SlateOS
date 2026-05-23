@@ -78,24 +78,56 @@ def diceCoins():
 
 
 """) 
-		time.sleep(0.5)
+		time.sleep(1)
 		clearChat()
 		print("""        _.-'~~`~~'-._
      .'`             `'.
-    /                   \
-  /`       .-'~"-.       `\
+    /                   |
+  /`       .-'~'-.       `|
  ;        / `-    \        ;
 ;        />  `.  -.|        ;
 |       /_     '-.__)       |
 |        |-  _.' \ |        |
 ;        `~~;     \\        ;
  ;          /      \\)     ;
-  \        '.___.-'`"     /
+  \        '.___.-'`'     /
    `\                   /`
      '._   1 9 9 7   _.'
         `'-..,,,..-'`
 """)
-		time.sleep(0.5)
+		time.sleep(1)
+		clearChat()
+		print("""                ______________
+    __,.,---'''''           ;   '''''---..._
+ ,-'         :::::::::   : ;;             '`-.
+'              ,,,::::     ''    ::   ::::    ;
+|            ::'''       :::::::::::::::::     ;
+|'-.._     ::::::::::   ::::      ::       __,,
+ '-.._''`---.....______________.....---''__,,-
+      ''`---.....______________.....---''
+
+
+
+
+""")
+		time.sleep(1)
+		clearChat()  
+		print("""        _.-'~~`~~'-._
+     .'`             `'.
+    /                   |
+  /`       .-'~'-.       `|
+ ;        / `-    \        ;
+;        />  `.  -.|        ;
+|       /_     '-.__)       |
+|        |-  _.' \ |        |
+;        `~~;     \\        ;
+ ;          /      \\)     ;
+  \        '.___.-'`'     /
+   `\                   /`
+     '._   1 9 9 7   _.'
+        `'-..,,,..-'`
+""")
+		time.sleep(1)
 		clearChat()
 		print("""                ______________
     __,.,---'''''           ;   '''''---..._
@@ -110,33 +142,34 @@ def diceCoins():
 
 
 """) 
-		coin = random.randint(1, 2)
+		coin = random.randint(1, 3)
 		if coin == 1:
 			print("""        _.-'~~`~~'-._
      .'`             `'.
-    /                   \
-  /`       .-'~"-.       `\
+    |                   |
+  |`       .-'~'-.       `|
  ;        / `-    \        ;
 ;        />  `.  -.|        ;
 |       /_     '-.__)       |
 |        |-  _.' \ |        |
 ;        `~~;     \\        ;
  ;          /      \\)     ;
-  \        '.___.-'`"     /
+  \        '.___.-'`'     /
    `\                   /`
      '._   1 9 9 7   _.'
         `'-..,,,..-'`
 """)
 			print("you flipped heads")
 			time.sleep(5)
+			clearChat()
 			mainMenu()
 		else:
 			print("""             _.oood''''''''booo._
          _.o''      _____    * ''o._
        oP'  _.ooo''''   ''''o|o*_* 'Yo
      o8   oP                 | |'._* `8o
-    d'  o8'_.--._            | |/  ,\* `b
-   d'  d'.' __   '.          | |: (( `\
+    d'  o8'_.--._            | |/  , |* `b
+   d'  d'.' __   '.          | |: (( `|* `b
   8'  d'/,-'  `.   :         | |  ||\_/* `8
  8   8'|/      :   :    |)   _ |  || |`|   8
 ,8  8          :  :   /)| \ || |\_|| | |8  8.
@@ -157,11 +190,15 @@ def diceCoins():
 """)
 			print("you flipped tails")
 			time.sleep(5)
+			clearChat()
 			mainMenu()
 	if CorD == "2":
 		dice = random.randint(1, 6)
 		print("you rolled a " + str(dice))
+		time.sleep(5)
+		mainMenu()
 	if CorD == "3":
+		clearChat()
 		mainMenu()
 def lock():
 	global passAttempts, password
@@ -320,4 +357,5 @@ def settings():
 		
 profile = ReadUserData("Username")
 password = ReadUserData("Password")
+clearChat()
 lock()
