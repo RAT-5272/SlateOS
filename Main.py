@@ -3,6 +3,7 @@ import time
 profile = "new user"
 password = "123"
 passAttempts = 0
+chamberedRounds = 6
 
 USER_DATA_FILE_PATH = "IfYouAreAHackerDontOpen.txt"
 
@@ -62,6 +63,37 @@ def WriteUserData(DataName, Value):
 		UserData.write("\n".join(UserDataContents))
 
 #commands
+def velkonianRoulete():
+	global chamberedRounds
+	learn = input("welcome to velkonian roulete the rules are simple do you want to learn how to play 1 = yes 2 = no: ")
+	if learn == "1":
+		print("1) there is a pistol with 6 chambers and 6 bullets 1 is live 5 are blanks")
+		print("2) The game you play is bullshit")
+		print("3) if you lose you spin the chamber and fire towards yourself")
+		print("4) if you win the opponent spins the chamber and fire towards themselves")
+		print("5) if you get the live round you lose and the game ends and if you get a blank the game carries on")
+		time.sleep(25)
+		clearChat()
+		bsRules = input("do you want to learn how to play bullshit 1 = yes 2 = no: ")
+		if bsRules == "1":
+			print("1) each player is dealt 5 cards")
+			print("2) each turn a player plays a card face down and says what card it is")
+			print("3) you are allowed to lie about what card you play or tell the truth")
+			print("4) the next player must then play a card of the same or higher value or call bullshit")
+			print("5) if you call bullshit and the player was lying you win but if they were telling the truth you lose")
+			print("6) the player with the highest card discards the card they played the players with lower cards keep their cards")
+			print("7) the first player to get rid of all their cards wins and all other players lose")
+			print("8) if the live round is fired the game ends even if there are cards left")
+			print("9) if multiple players have lost at the end of the game the player with the most cards is the one who loses \n   and must fire the gun")
+			time.sleep(45)
+			clearChat()
+		else:
+			clearChat()
+			mainMenu()
+	else:
+		clearChat()
+		mainMenu()
+
 def diceCoins():
 	CorD = input("do you want to flip a coin or roll a dice 1 = coin 2 = dice if u want to exit exit = 3: ")
 	if CorD == "1":
@@ -309,8 +341,7 @@ def games():
 		games()
 	if gamesChoice == "2":
 		clearChat()
-		construction("velkonian roulete")
-		games()
+		velkonianRoulete()
 	if gamesChoice == "3":
 		clearChat()
 		diceCoins()
