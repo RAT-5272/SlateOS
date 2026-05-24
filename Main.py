@@ -73,7 +73,11 @@ def deck():
 	suit = [hearts, diamonds, clubs, spades]
 	rank = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
 	value = [2,3,4,5,6,7,8,9,10,10,10,10,11]
-	print("your card is the " + rank[0] + " of " + suit[0] + " with a value of " + str(value[0]))
+	card = random.randint(0, 51)
+	cardsuit = suit[card//13]
+	cardrank = rank[card%13]
+	cardvalue = value[card%13]
+	print("your card is the " + cardrank + " of " + cardsuit + " with a value of " + str(cardvalue))
 	time.sleep(5)
 	mainMenu()
 def velkonianRoulete():
