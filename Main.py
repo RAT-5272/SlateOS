@@ -64,13 +64,18 @@ def WriteUserData(DataName, Value):
 		UserData.write("\n".join(UserDataContents))
 
 #commands
+
 def blackjack():
-	hearts, diamonds, clubs, spades = "♥", "♦", "♣", "♠"
+	hearts = "♥"
+	diamonds = "♦"
+	clubs = "♣"
+	spades = "♠"
 	suit = [hearts, diamonds, clubs, spades]
 	rank = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
 	value = [2,3,4,5,6,7,8,9,10,10,10,10,11]
 	print("your card is the " + rank[0] + " of " + suit[0] + " with a value of " + str(value[0]))
-	
+	time.sleep(5)
+	mainMenu()
 def velkonianRoulete():
 	global chamberedRounds
 	learn = input("welcome to velkonian roulete the rules are simple do you want to learn how to play 1 = yes 2 = no: ")
@@ -345,8 +350,7 @@ def games():
 	gamesChoice = input("-------GAMES------- \n------------------- \n 1) blackjack \n 2) velkonian roulete \n 3) coin/dice \n 4) tank battles \n 5) back \n")
 	if gamesChoice == "1":
 		clearChat()
-		construction("blackjack")
-		games()
+		blackjack()
 	if gamesChoice == "2":
 		clearChat()
 		velkonianRoulete()
@@ -361,7 +365,6 @@ def games():
 		construction("tank battles")
 		games()
 
-#backjack()
 def settings():
 	settingChoice = input("----SETTINGS---- \n---------------- \n 1) account \n 2) password \n 3) clean slate \n 4) back to home \n 5) lock device \n")
 	if settingChoice == "1":
