@@ -72,7 +72,7 @@ def velkonianRoulete():
 		print("3) if you lose you spin the chamber and fire towards yourself")
 		print("4) if you win the opponent spins the chamber and fire towards themselves")
 		print("5) if you get the live round you lose and the game ends and if you get a blank the game carries on")
-		time.sleep(25)
+		input("Press enter once you have read and understood this ^")
 		clearChat()
 		bsRules = input("do you want to learn how to play bullshit 1 = yes 2 = no: ")
 		if bsRules == "1":
@@ -85,7 +85,7 @@ def velkonianRoulete():
 			print("7) the first player to get rid of all their cards wins and all other players lose")
 			print("8) if the live round is fired the game ends even if there are cards left")
 			print("9) if multiple players have lost at the end of the game the player with the most cards is the one who loses \n   and must fire the gun")
-			time.sleep(45)
+			input("Press enter once you have read and understood this ^")
 			clearChat()
 		else:
 			clearChat()
@@ -212,13 +212,13 @@ def diceCoins():
               `'''boooooood'''
 """)
 			print("you flipped tails")
-			time.sleep(5)
+			input("Press enter to continue.")
 			clearChat()
 			mainMenu()
 	if CorD == "2":
 		dice = random.randint(1, 6)
 		print("you rolled a " + str(dice))
-		time.sleep(5)
+		input("Press enter to continue.")
 		mainMenu()
 	if CorD == "3":
 		clearChat()
