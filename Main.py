@@ -65,7 +65,7 @@ def WriteUserData(DataName, Value):
 
 #commands
 
-def blackjack():
+def deck():
 	hearts = "♥"
 	diamonds = "♦"
 	clubs = "♣"
@@ -73,7 +73,13 @@ def blackjack():
 	suit = [hearts, diamonds, clubs, spades]
 	rank = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
 	value = [2,3,4,5,6,7,8,9,10,10,10,10,11]
-	print("your card is the " + rank[0] + " of " + suit[0] + " with a value of " + str(value[0]))
+	#here till next comment is vibe coded
+	randomCard = random.randint(0, 51)
+	cardSuit = suit[randomCard//13]
+	cardRank = rank[randomCard%13]
+	cardValue = value[randomCard%13]
+	print("your card is the " + cardRank + " of " + cardSuit + " with a value of " + str(cardValue))
+	#end of vibe coded section
 	time.sleep(5)
 	mainMenu()
 def velkonianRoulete():
@@ -350,7 +356,7 @@ def games():
 	gamesChoice = input("-------GAMES------- \n------------------- \n 1) blackjack \n 2) velkonian roulete \n 3) coin/dice \n 4) tank battles \n 5) back \n")
 	if gamesChoice == "1":
 		clearChat()
-		blackjack()
+		deck()
 	if gamesChoice == "2":
 		clearChat()
 		velkonianRoulete()
