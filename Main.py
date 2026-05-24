@@ -63,6 +63,7 @@ def WriteUserData(DataName, Value):
 		UserData.write("\n".join(UserDataContents))
 
 #commands
+def blackjack
 def velkonianRoulete():
 	global chamberedRounds
 	learn = input("welcome to velkonian roulete the rules are simple do you want to learn how to play 1 = yes 2 = no: ")
