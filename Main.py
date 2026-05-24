@@ -73,13 +73,7 @@ def deck():
 	suit = [hearts, diamonds, clubs, spades]
 	rank = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
 	value = [2,3,4,5,6,7,8,9,10,10,10,10,11]
-	#here till next comment is vibe coded
-	randomCard = random.randint(0, 51)
-	cardSuit = suit[randomCard//13]
-	cardRank = rank[randomCard%13]
-	cardValue = value[randomCard%13]
-	print("your card is the " + cardRank + " of " + cardSuit + " with a value of " + str(cardValue))
-	#end of vibe coded section
+	print("your card is the " + rank[0] + " of " + suit[0] + " with a value of " + str(value[0]))
 	time.sleep(5)
 	mainMenu()
 def velkonianRoulete():
@@ -91,7 +85,7 @@ def velkonianRoulete():
 		print("3) if you lose you spin the chamber and fire towards yourself")
 		print("4) if you win the opponent spins the chamber and fire towards themselves")
 		print("5) if you get the live round you lose and the game ends and if you get a blank the game carries on")
-		time.sleep(25)
+		input("Press enter once you have read and understood this ^")
 		clearChat()
 		bsRules = input("do you want to learn how to play bullshit 1 = yes 2 = no: ")
 		if bsRules == "1":
@@ -104,7 +98,7 @@ def velkonianRoulete():
 			print("7) the first player to get rid of all their cards wins and all other players lose")
 			print("8) if the live round is fired the game ends even if there are cards left")
 			print("9) if multiple players have lost at the end of the game the player with the most cards is the one who loses \n   and must fire the gun")
-			time.sleep(35)
+			input("Press enter once you have read and understood this ^")
 			clearChat()
 		else:
 			clearChat()
@@ -231,13 +225,13 @@ def diceCoins():
               `'''boooooood'''
 """)
 			print("you flipped tails")
-			time.sleep(5)
+			input("Press enter to continue.")
 			clearChat()
 			mainMenu()
 	if CorD == "2":
 		dice = random.randint(1, 6)
 		print("you rolled a " + str(dice))
-		time.sleep(5)
+		input("Press enter to continue.")
 		mainMenu()
 	if CorD == "3":
 		clearChat()
