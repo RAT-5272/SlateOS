@@ -5,6 +5,7 @@ password = "123"
 passAttempts = 0
 chamberedRounds = 6
 
+
 USER_DATA_FILE_PATH = "IfYouAreAHackerDontOpen.txt"
 
 USER_DATA_LOOKUP_TABLE = [
@@ -63,7 +64,13 @@ def WriteUserData(DataName, Value):
 		UserData.write("\n".join(UserDataContents))
 
 #commands
-def blackjack
+def blackjack():
+	hearts, diamonds, clubs, spades = "♥", "♦", "♣", "♠"
+	suit = [hearts, diamonds, clubs, spades]
+	rank = ["2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
+	value = [2,3,4,5,6,7,8,9,10,10,10,10,11]
+	print("your card is the " + rank[0] + " of " + suit[0] + " with a value of " + str(value[0]))
+	
 def velkonianRoulete():
 	global chamberedRounds
 	learn = input("welcome to velkonian roulete the rules are simple do you want to learn how to play 1 = yes 2 = no: ")
@@ -86,7 +93,7 @@ def velkonianRoulete():
 			print("7) the first player to get rid of all their cards wins and all other players lose")
 			print("8) if the live round is fired the game ends even if there are cards left")
 			print("9) if multiple players have lost at the end of the game the player with the most cards is the one who loses \n   and must fire the gun")
-			time.sleep(45)
+			time.sleep(35)
 			clearChat()
 		else:
 			clearChat()
