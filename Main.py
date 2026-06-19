@@ -80,7 +80,7 @@ def deck():
 	cardvalue = value[card%13]
 	#end of vibe code
 	print("your card is the " + cardrank + " of " + cardsuit + " with a value of " + str(cardvalue))
-	time.sleep(5)
+	input("Press enter to continue")
 	mainMenu()
 def velkonianRoulete():
 	global chamberedRounds
@@ -202,7 +202,7 @@ def diceCoins():
         `'-..,,,..-'`
 """)
 			print("you flipped heads")
-			time.sleep(5)
+			input("Press enter to continue.")
 			clearChat()
 			mainMenu()
 		else:
