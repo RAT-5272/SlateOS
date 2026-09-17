@@ -235,6 +235,16 @@ def diceCoins():
 			clearChat()
 			mainMenu()
 	if CorD == "2":
+		time.sleep(1)
+		print("""        		               _______.
+                            ______    | .   . |\\
+                           /     /\\   |   .   |.\\
+                          /  '  /  \\  | .   . |.'|
+                         /_____/. . \\ |_______|.'|
+                         \\ . . \\    /  \\ ' .   \\'|
+                          \\ . . \\  /    \\____'__\\|
+                           \\_____\\/""")
+		time.sleep(1)
 		dice = random.randint(1, 6)
 		print("you rolled a " + str(dice))
 		input("Press enter to continue.")
