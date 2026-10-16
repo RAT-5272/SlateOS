@@ -235,6 +235,8 @@ def diceCoins():
 			clearChat()
 			mainMenu()
 	if CorD == "2":
+		userpick = int(input("pick a number between 1 and 6"))
+		print("this is a 1/6 shot for 100 money it costs 20")
 		time.sleep(1)
 		print("""        		               _______.
                             ______    | .   . |\\
@@ -247,6 +249,9 @@ def diceCoins():
 		time.sleep(1)
 		dice = random.randint(1, 6)
 		print("you rolled a " + str(dice))
+		if dice == userpick:
+			money = money + 100
+
 		input("Press enter to continue.")
 		mainMenu()
 	if CorD == "3":
@@ -256,10 +261,12 @@ def lock():
 	global passAttempts, password
 	if passAttempts == 5:
 		print("device will now be locked for 2 mins")
-		for i in range (1, 120):
+		time.sleep(2)
+		for i in range (1, 60):
 			clearChat()
 			time.sleep(1)
 			print(i)
+			time.sleep(1)
 			clearChat()
 			passAttempts = 3
 	else:
